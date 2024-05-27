@@ -17,7 +17,22 @@ def load_images_from_folder(folder):
                 img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)  # convert image to BGR
 
                 if img_bgr[0][0].tolist() != [154,203,102] and img_bgr[0][0].tolist() != [150,190,110]:
-                    yield img_bgr
+                    if img_bgr.shape == (1920,1080,3):
+                        if  (img_bgr[1800][450].tolist() == [52,113,0] 
+                            or img_bgr[1800][325].tolist() == [52,113,0] 
+                            or img_bgr[1800][575].tolist() == [52,113,0] 
+                            or img_bgr[1800][700].tolist() == [52,113,0] 
+                            or img_bgr[1800][825].tolist() == [52,113,0] 
+                            or img_bgr[1800][950].tolist() == [52,113,0]
+                            or img_bgr[1800][450].tolist() == [38,12,145] 
+                            or img_bgr[1800][325].tolist() == [38,12,145] 
+                            or img_bgr[1800][575].tolist() == [38,12,145] 
+                            or img_bgr[1800][700].tolist() == [38,12,145] 
+                            or img_bgr[1800][825].tolist() == [38,12,145]  
+                            or img_bgr[1800][950].tolist() == [38,12,145]):
+                                yield img_bgr
+                    else:
+                        yield img_bgr
 
 
 def sample_size(folder):
@@ -30,9 +45,10 @@ def sample_size(folder):
 
 #load folder name
 folder = "smmiMai_Test"
+img_test = cv2.imread("smmiMai_Test\screen-left-2022-05-29-17-10.bmp")
 sampleSize = sample_size(folder)
 counter = 0
-image = 0
+image = []
 #Start timer to know the computing time of our method
 start = time.time()
 
@@ -40,11 +56,10 @@ start = time.time()
 images = load_images_from_folder(folder)
 for img in images:
     counter = counter +1
-    image = img
+    image.append(img)
 
 #stop the timer
 end = time.time()
-cProfile.run('load_images_from_folder()')
 print(
     f"""
 Computing the basic filter for the images with a sample size of {sampleSize}
@@ -55,5 +70,5 @@ Computing the basic filter for the images with a sample size of {sampleSize}
 
 #pixel_info = images[0]
 # Now display the image
-cv2.imshow("test", image )
+cv2.imshow("test", cv2.resize(image[2], (500, 1000)))
 cv2.waitKey(0)
