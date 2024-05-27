@@ -44,7 +44,7 @@ def sample_size(folder):
     
 
 #load folder name
-folder = "smmiMai_Test"
+folder = "smmiMai"
 img_test = cv2.imread("smmiMai_Test\screen-left-2022-05-29-17-10.bmp")
 sampleSize = sample_size(folder)
 counter = 0
@@ -70,5 +70,4 @@ Computing the basic filter for the images with a sample size of {sampleSize}
 
 #pixel_info = images[0]
 # Now display the image
-cv2.imshow("test", cv2.resize(image[2], (500, 1000)))
 cv2.waitKey(0)
