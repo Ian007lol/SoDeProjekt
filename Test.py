@@ -4,8 +4,8 @@ import os
 from PIL import Image
 import time
 import cProfile
+import mysql.connector
 filnam = []
-
 
 def load_images_from_folder(folder):
     for filename in os.listdir(folder):
@@ -42,6 +42,7 @@ def load_images_from_folder(folder):
                                 or img_bgr[1800][620].tolist() == [38,12,145]  
                                 or img_bgr[1800][740].tolist() == [38,12,145]):
                                     filnam.append(filename)
+                                    
                                     yield img_bgr
                     
                         
@@ -56,7 +57,7 @@ def sample_size(folder):
     
 
 #load folder name
-folder = "smmiMai"
+folder = "smmiMai_test"
 save_folder= "sorted"
 sampleSize = sample_size(folder)
 counter = 0
