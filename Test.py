@@ -57,7 +57,7 @@ def sample_size(folder):
     
 
 #load folder name
-folder = "smmiMai_test"
+folder = "smmiMai"
 save_folder= "sorted"
 sampleSize = sample_size(folder)
 counter = 0
