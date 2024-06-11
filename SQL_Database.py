@@ -7,7 +7,7 @@ import time
 import pickle
 from QueryBuilder import QueryBuilder
 filnam = []
-
+builder = QueryBuilder()
 
 mydb = mysql.connector.connect(
   host="localhost",
@@ -110,30 +110,52 @@ def insert_images_to_DB(folder):
                             mycursor.execute(sql, val)
                     
 
-def sort_menu(menu_variable):
-    # menu variable kommt vom frontend
-    query = f"SELECT * FROM images WHERE menu = {menu_variable}"
-    return query
-    #Show in Frontend.
+def add_sort_menu_1(): builder.add_condition("menu = 1")
+def add_sort_menu_2(): builder.add_condition("menu = 2")
+def add_sort_menu_3(): builder.add_condition("menu = 3")
+def add_sort_menu_4(): builder.add_condition("menu = 4")
+def add_sort_menu_5(): builder.add_condition("menu = 5")
+def add_sort_menu_6(): builder.add_condition("menu = 6")
 
-def add_sort_menu(menu_variable):
-    # menu variable kommt vom frontend
-    query = f" AND menu = {menu_variable}"
-    return query
-    #Show in Frontend.
+def remove_sort_menu_1(): builder.remove_condition("menu = 1")
+def remove_sort_menu_2(): builder.remove_condition("menu = 2")
+def remove_sort_menu_3(): builder.remove_condition("menu = 3")
+def remove_sort_menu_4(): builder.remove_condition("menu = 4")
+def remove_sort_menu_5(): builder.remove_condition("menu = 5")
+def remove_sort_menu_6(): builder.remove_condition("menu = 6")
 
-def sort_kvv(kvv_variable):
-    # menu variable kommt vom frontend
-    query = f"SELECT * FROM images WHERE kvv = {kvv_variable}"
-    return query
+def add_sort_KVV_TRUE(): builder.add_condition("kvv = 1")
+def add_sort_KVV_FALSE(): builder.add_condition("kvv = 0")
 
+def remove_sort_KVV_TRUE(): builder.remove_condition("kvv = 1")
+def remove_sort_KVV_FALSE(): builder.remove_condition("kvv = 0")
 
+def sort_by_date(): builder.add_order_by("Date")
      
 #load folder name
+
+
 folder = "Sorted"
 start = time.time()
 #insert_images_to_DB(folder)
+add_sort_menu_4()
+add_sort_KVV_FALSE()
+sort_by_date()
+query = builder.build()
 #mydb.commit()
+
+
+
+
+#builder.add_condition("kvv = 1")
+#builder.remove_condition("menu = 2")
+#query = builder.build()  # This will return "SELECT * FROM images WHERE menu = 2 AND kvv = 1"
+mycursor.execute(query)#Variable für Frontend
+rows = mycursor.fetchall()
+for row in rows:
+    # Convert bytes back to numpy array
+    rows = pickle.loads(row[5])
+    
 end = time.time()
 
 print(
@@ -143,16 +165,6 @@ Content uploaded to DB
 """,
         )
 
-builder = QueryBuilder()
-builder.add_condition("menu = 2")
-builder.add_condition("kvv = 1")
-query = builder.build()  # This will return "SELECT * FROM images WHERE menu = 2 AND kvv = 1"
-mycursor.execute(query)#Variable für Frontend
-rows = mycursor.fetchall()
-for row in rows:
-    # Convert bytes back to numpy array
-    rows = pickle.loads(row[5])
-    
 cv2.imshow("patpat",rows)
 cv2.waitKey(0)
 
