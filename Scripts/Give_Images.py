@@ -1,6 +1,7 @@
 import mysql.connector
 from QueryBuilder import QueryBuilder
 import SQL_Database as DB
+import Filter
 
 index = [0, 0]
 
@@ -11,6 +12,21 @@ mydb = mysql.connector.connect(
   database="filteredImages"
 )
 mycursor = mydb.cursor()
+builder = QueryBuilder()
+
+def Fetch_IMG():
+    DB.paths_left.clear()
+    DB.paths_right.clear()
+    Filter.add_sort_menu_1
+    Filter.add_sort_KVV_FALSE
+    query = builder.build()
+    mycursor.execute(query)#Variable für Frontend
+    rows = mycursor.fetchall()
+
+    for row in rows:
+    
+        if "right" in row[-1]:DB.paths_right.append(row[-1])
+        if "left" in row[-1]:DB.paths_left.append(row[-1])
 
 def Give_Image_Right_FWRD():
     index[1] = (index[1] + 1) % len(DB.paths_right)

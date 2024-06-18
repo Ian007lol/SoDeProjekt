@@ -73,6 +73,8 @@
     <span class="material-symbols-outlined">
       arrow_forward_ios
     </span></button>
+    <button id="fetchImagesBtn">Fetch Images</button>
+
   <div class="timeline">
     <p class="box">Current Date:</p>
     <p class="box"> Date l: 22</p>
@@ -98,5 +100,37 @@ var url = 'http://localhost:5000/imageRight_BCK?' ;
 document.getElementById('imageRight').src = url;
 });
 
+
 </script>
+  <script>
+    function fetchImages() {
+      fetch('http://localhost:5000/fetchImages', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+        // Optionally update your UI based on the response
+        // For example, refresh images after fetching new ones
+        document.getElementById('imageLeft').src = `http://localhost:5000/imageLeft_BCK?${new Date().getTime()}`;
+        document.getElementById('imageRight').src = `http://localhost:5000/imageRight_BCK?${new Date().getTime()}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+    document.getElementById('fetchImagesBtn').addEventListener('click', fetchImages);
+
+  </script>
+
+</body>
+</html>
+
 </html>
