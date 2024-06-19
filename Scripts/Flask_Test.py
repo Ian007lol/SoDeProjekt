@@ -45,7 +45,7 @@ def Fetch_IMG():
     DB.paths_left.clear()
     DB.paths_right.clear()
     query = builder.build()
-    mycursor.execute("Select * from images where id = 1")
+    mycursor.execute(query)
     rows = mycursor.fetchall()
 
     for row in rows:
@@ -83,6 +83,86 @@ def serve_image_Left_BCK():
 def fetch_images():
     Fetch_IMG()  # Call your function here
     return jsonify({'message': 'Images fetched successfully'})  # Optionally return a response
+
+@app.route('/sort_KVV_TRUE')
+def sort_KVV_TRUE():
+    add_sort_KVV_TRUE()  # Call your function here
+    return jsonify({'message': 'Images sorted by KVV TRUE successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_KVV_TRUE')
+def REMOVE_sort_KVV_TRUE():
+    remove_sort_KVV_TRUE()  # Call your function here
+    return jsonify({'message': 'Images sort bye KVV TRUE removed successfully'})  # Optionally return a response
+
+@app.route('/sort_KVV_FALSE')
+def sort_KVV_FALSE():
+    add_sort_KVV_FALSE()  # Call your function here
+    return jsonify({'message': 'Images sorted by KVV FALSE successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_KVV_FALSE')
+def REMOVE_sort_KVV_FALSE():
+    remove_sort_KVV_FALSE()  # Call your function here
+    return jsonify({'message': 'Images sort by KVV FALSE removed successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_1')
+def sort_menu_1():
+    add_sort_menu_1()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 1 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_1')
+def REMOVE_sort_menu_1():
+    remove_sort_menu_1()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 1 successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_2')
+def sort_menu_2():
+    add_sort_menu_2()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 2 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_2')
+def REMOVE_sort_menu_2():
+    remove_sort_menu_2()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 2 successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_3')
+def sort_menu_3():
+    add_sort_menu_3()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 3 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_3')
+def REMOVE_sort_menu_3():
+    remove_sort_menu_3()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 3 successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_4')
+def sort_menu_4():
+    add_sort_menu_4()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 4 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_4')
+def REMOVE_sort_menu_4():
+    remove_sort_menu_4()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 4 successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_5')
+def sort_menu_5():
+    add_sort_menu_5()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 5 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_5')
+def REMOVE_sort_menu_5():
+    remove_sort_menu_5()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 5 successfully'})  # Optionally return a response
+
+@app.route('/sort_menu_6')
+def sort_menu_6():
+    add_sort_menu_6()  # Call your function here
+    return jsonify({'message': 'Images sorted by menu 6 successfully'})  # Optionally return a response
+
+@app.route('/REMOVE_sort_menu_6')
+def REMOVE_sort_menu_6():
+    remove_sort_menu_6()  # Call your function here
+    return jsonify({'message': 'Images sort removed by menu 6 successfully'})  # Optionally return a response
 
 
 if __name__ == "__main__":

@@ -11,20 +11,22 @@
 <body>
   <div class="container">
   <p class="box">Current active Filter:</p> <p class="box">None</p>
-      <img src="screen-perl-2022-05-15-07-21.png" alt="Banner" class="cropImg">
   <div class="container2">
   <p class="box2">Filter by:</p>
   <nav>
     <button class="dropbtn">Menu</button>
     <ul class="dropdown-content">
-      <li> <a href="#">Menu 1</a></li>
-      <li> <a href="#">Menu 2</a></li>
-      <li> <a href="#">Menu 3</a> </li>
+      <li> <input type="checkbox" id="Menu1Checkbox"> Menu 1</li>
+      <li> <input type="checkbox" id="Menu2Checkbox"> Menu 2</li>
+      <li> <input type="checkbox" id="Menu3Checkbox"> Menu 3</li>
+      <li> <input type="checkbox" id="Menu4Checkbox"> Menu 4</li>
+      <li> <input type="checkbox" id="Menu5Checkbox"> Menu 5</li>
+      <li> <input type="checkbox" id="Menu6Checkbox"> Menu 6</li>
     </ul>
     <button class="dropbtn">Geography</button>
     <ul class="dropdown-content">
-      <li> <a href="#">Inside KVV-Area</a></li>
-      <li> <a href="#">Outside KVV-Area</a></li>
+      <li> <input type="checkbox" id="InsideKVVCheckbox"> Outside KVV</li>
+      <li> <input type="checkbox" id="OutsideKVVCheckbox"> Inside KVV</a></li>
     </ul>
     <button class="dropbtn">Weather</button>
     <ul class="dropdown-content">
@@ -73,7 +75,10 @@
     <span class="material-symbols-outlined">
       arrow_forward_ios
     </span></button>
-    <button id="fetchImagesBtn">Fetch Images</button>
+    <button id="fetchImagesBtn">Apply Filters</button>
+
+    
+
 
   <div class="timeline">
     <p class="box">Current Date:</p>
@@ -127,6 +132,396 @@ document.getElementById('imageRight').src = url;
     }
 
     document.getElementById('fetchImagesBtn').addEventListener('click', fetchImages);
+
+  </script>
+   <script>
+    function sort_KVV_FALSE() {
+      fetch('http://localhost:5000/sort_KVV_FALSE', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_KVV_FALSE() {
+      fetch('http://localhost:5000/REMOVE_sort_KVV_FALSE', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+    function sort_KVV_TRUE() {
+      fetch('http://localhost:5000/sort_KVV_TRUE', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_KVV_TRUE() {
+      fetch('http://localhost:5000/REMOVE_sort_KVV_TRUE', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+    function sort_menu_1() {
+      fetch('http://localhost:5000/sort_menu_1', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_1() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_1', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    
+    function sort_menu_2() {
+      fetch('http://localhost:5000/sort_menu_2', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_2() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_2', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+function sort_menu_3() {
+      fetch('http://localhost:5000/sort_menu_3', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_3() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_3', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+ function sort_menu_4() {
+      fetch('http://localhost:5000/sort_menu_4', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_4() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_4', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    
+    function sort_menu_5() {
+      fetch('http://localhost:5000/sort_menu_5', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_5() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_5', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+function sort_menu_6() {
+      fetch('http://localhost:5000/sort_menu_6', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function REMOVE_sort_menu_6() {
+      fetch('http://localhost:5000/REMOVE_sort_menu_6', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+
+
+    document.getElementById('OutsideKVVCheckbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_KVV_FALSE();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_KVV_FALSE();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+
+    document.getElementById('InsideKVVCheckbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_KVV_TRUE();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_KVV_TRUE();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+
+    document.getElementById('Menu1Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_1();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_1();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+    document.getElementById('Menu2Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_2();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_2();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+    document.getElementById('Menu3Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_3();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_3();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+document.getElementById('Menu4Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_4();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_4();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+    document.getElementById('Menu5Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_5();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_5();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
+    document.getElementById('Menu6Checkbox').addEventListener('change', function() {
+      if (this.checked) {
+        sort_menu_6();
+        console.log('Checkbox is checked');
+        // Replace with your action when checked
+      } else {
+        REMOVE_sort_menu_6();
+        console.log('Checkbox is unchecked');
+        // Replace with your action when unchecked
+      }
+    });
 
   </script>
 

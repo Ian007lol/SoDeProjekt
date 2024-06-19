@@ -77,57 +77,54 @@ def insert_images_to_DB(folder):
 
                     if "right" in filename:
                         if img_bgr[1800][140].tolist() == [52,113,0]:
-                            val = (1, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][260].tolist() == [52,113,0]: 
-                            val = (2, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][380].tolist() == [52,113,0]:
-                            val = (3, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][500].tolist() == [52,113,0]:
-                            val = (4, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][620].tolist() == [52,113,0]:
-                            val = (5, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][740].tolist() == [52,113,0]:
                             val = (6, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
                             mycursor.execute(sql, val)
+                        if img_bgr[1800][260].tolist() == [52,113,0]: 
+                            val = (5, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][380].tolist() == [52,113,0]:
+                            val = (4, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][500].tolist() == [52,113,0]:
+                            val = (3, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][620].tolist() == [52,113,0]:
+                            val = (2, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][740].tolist() == [52,113,0]:
+                            val = (1, True, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
                         if img_bgr[1800][140].tolist() == [38,12,145]:
-                            val = (1, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            val = (6, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
                             mycursor.execute(sql, val)
                         if img_bgr[1800][260].tolist() == [38,12,145]:
-                            val = (2, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][380].tolist() == [38,12,145]:
-                            val = (3, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][500].tolist() == [38,12,145]:
-                            val = (4, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
-                            mycursor.execute(sql, val)
-                        if img_bgr[1800][620].tolist() == [38,12,145]:
                             val = (5, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
                             mycursor.execute(sql, val)
+                        if img_bgr[1800][380].tolist() == [38,12,145]:
+                            val = (4, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][500].tolist() == [38,12,145]:
+                            val = (3, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
+                        if img_bgr[1800][620].tolist() == [38,12,145]:
+                            val = (2, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            mycursor.execute(sql, val)
                         if img_bgr[1800][740].tolist() == [38,12,145]:
-                            val = (6, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
+                            val = (1, False, filename[-20:-10]+" "+filename[-9:-7]+":"+filename[-6:-4]+":00", "right", filename)
                             mycursor.execute(sql, val)
                     
 
 #load folder name
 
 
-folder = "Sorted"
+folder = "Scripts/Sorted"
 start = time.time()
-#insert_images_to_DB(folder)
-#mydb.commit()
+insert_images_to_DB(folder)
+mydb.commit()
 
-Filter.add_sort_menu_4()
-Filter.add_sort_KVV_FALSE()
-Filter.sort_by_date()
 print("SORTED")
 query = builder.build()
-mycursor.execute(query)#Variable für Frontend
+mycursor.execute("Select * from images Order By date")#Variable für Frontend
 rows = mycursor.fetchall()
 
 for row in rows:
