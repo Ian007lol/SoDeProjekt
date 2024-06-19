@@ -20,27 +20,32 @@ mydb = mysql.connector.connect(
 builder = QueryBuilder()
 
 mycursor = mydb.cursor()
-def add_sort_menu_1(): builder.add_condition("menu = 1")
-def add_sort_menu_2(): builder.add_condition("menu = 2")
-def add_sort_menu_3(): builder.add_condition("menu = 3")
-def add_sort_menu_4(): builder.add_condition("menu = 4")
-def add_sort_menu_5(): builder.add_condition("menu = 5")
-def add_sort_menu_6(): builder.add_condition("menu = 6")
+def add_sort_menu_1(): builder.add_condition("menu_1","menu = 1")
+def add_sort_menu_2(): builder.add_condition("menu_2","menu = 2")
+def add_sort_menu_3(): builder.add_condition("menu_3","menu = 3")
+def add_sort_menu_4(): builder.add_condition("menu_4","menu = 4")
+def add_sort_menu_5(): builder.add_condition("menu_5","menu = 5")
+def add_sort_menu_6(): builder.add_condition("menu_6","menu = 6")
 
-def remove_sort_menu_1(): builder.remove_condition("menu = 1")
-def remove_sort_menu_2(): builder.remove_condition("menu = 2")
-def remove_sort_menu_3(): builder.remove_condition("menu = 3")
-def remove_sort_menu_4(): builder.remove_condition("menu = 4")
-def remove_sort_menu_5(): builder.remove_condition("menu = 5")
-def remove_sort_menu_6(): builder.remove_condition("menu = 6")
+def remove_sort_menu_1(): builder.remove_condition("menu_1")
+def remove_sort_menu_2(): builder.remove_condition("menu_2")
+def remove_sort_menu_3(): builder.remove_condition("menu_3")
+def remove_sort_menu_4(): builder.remove_condition("menu_4")
+def remove_sort_menu_5(): builder.remove_condition("menu_5")
+def remove_sort_menu_6(): builder.remove_condition("menu_6")
 
-def add_sort_KVV_TRUE(): builder.add_condition("kvv = 1")
-def add_sort_KVV_FALSE(): builder.add_condition("kvv = 0")
+def add_sort_KVV_TRUE(): builder.add_condition("kvv_true","kvv = 1")
+def add_sort_KVV_FALSE(): builder.add_condition("kvv_false","kvv = 0")
 
-def remove_sort_KVV_TRUE(): builder.remove_condition("kvv = 1")
-def remove_sort_KVV_FALSE(): builder.remove_condition("kvv = 0")
+def remove_sort_KVV_TRUE(): builder.remove_condition("kvv_true")
+def remove_sort_KVV_FALSE(): builder.remove_condition("kvv_false")
 
 def sort_by_date(): builder.add_order_by("Date")
+
+def add_between_date(Start_date, End_date): builder.add_between_condition('date_range', 'date', Start_date, End_date)
+def remove_between_date(): builder.add_between_condition('date_range')
+
+
 def Fetch_IMG():
     DB.paths_left.clear()
     DB.paths_right.clear()
@@ -53,6 +58,8 @@ def Fetch_IMG():
             DB.paths_right.append(row[-1])
         if "left" in row[-1]:
             DB.paths_left.append(row[-1])
+
+
 
 @app.after_request
 def add_header(response):
@@ -163,6 +170,20 @@ def sort_menu_6():
 def REMOVE_sort_menu_6():
     remove_sort_menu_6()  # Call your function here
     return jsonify({'message': 'Images sort removed by menu 6 successfully'})  # Optionally return a response
+
+@app.route('/sort_between')
+def sort_between():
+    start_date = request.args.get('startDate')
+    end_date = request.args.get('endDate')
+    
+    add_between_date(start_date, end_date)  # Call your function here with start_date and end_date
+    
+    return jsonify({'message': 'Dates added to query builder'}), 200
+
+@app.route('/REMOVE_sort_between')
+def remove_sort_between():
+    remove_between_date()
+    return jsonify({'message': 'Dates deleted to query builder'}), 200
 
 
 if __name__ == "__main__":

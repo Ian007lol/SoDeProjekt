@@ -124,7 +124,7 @@ mydb.commit()
 
 print("SORTED")
 query = builder.build()
-mycursor.execute("Select * from images Order By date")#Variable für Frontend
+mycursor.execute("Select * from images Order By date DESC")#Variable für Frontend
 rows = mycursor.fetchall()
 
 for row in rows:
