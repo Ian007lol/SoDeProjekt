@@ -63,11 +63,21 @@ margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  right: 115px;
+  top: 5%;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .25px;
 }
 
 .container2{
   display: flex;
     flex-direction: column;
+    position: absolute;
+    right: 405px;
+    top: 5%;
 }
 
 .text {
@@ -94,6 +104,105 @@ margin-right: 10px;
     font-style: normal;
   }
 
+  #buttonLeft {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    left: 100px; /* Adjust this value to move the button horizontally */
+    top: 35%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #4CAF50; /* Optional: Add any additional styling */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+  }
+  
+  #buttonRight {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    right: 675px; /* Adjust this value to move the button horizontally */
+    top: 35%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #4CAF50; /* Optional: Add any additional styling */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+  }
+
+  #dateL {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    left: 125px; /* Adjust this value to move the button horizontally */
+    top: 70%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #ffffff; /* Optional: Add any additional styling */
+    color: rgb(0, 0, 0);
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(45, 45, 45);
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+  }
+
+  #dateR {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    right: 700px; /* Adjust this value to move the button horizontally */
+    top: 70%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #ffffff; /* Optional: Add any additional styling */
+    color: rgb(0, 0, 0);
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(45, 45, 45);
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+  }
+
+  #fetchImagesBtn {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    right: 502px; /* Adjust this value to move the button horizontally */
+    top: 60%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #4CAF50; /* Optional: Add any additional styling */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: .25px;
+  }
+
+  #currentDate {
+    position: absolute; /* Allows positioning using top, bottom, left, right */
+    left: 625px; /* Adjust this value to move the button horizontally */
+    top: 60%; /* Adjust this value to move the button vertically */
+    transform: translateY(-50%); /* Centers the button vertically */
+    background-color: #ffffff; /* Optional: Add any additional styling */
+    color: rgb(0, 0, 0);
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(45, 45, 45);
+    cursor: pointer;
+    z-index: 10; /* Ensure the button is on top */
+  }
 
 /*Button1 Dedsign*/
 #button-17 {
@@ -167,15 +276,15 @@ margin-right: 10px;
 
 /* Dropdown Button Menu*/
 .dropbtn {
-  background-color: #6fcdaa;
-  color: rgb(218, 218, 218);
+  background-color: #4CAF50;
+  color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 16px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: block;
-  width: 100%;
+  width: 125%;
   text-align: left;
   margin-bottom: 2px;
 }

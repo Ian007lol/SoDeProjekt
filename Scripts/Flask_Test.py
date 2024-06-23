@@ -1,6 +1,6 @@
 from flask import Flask, send_file, request, jsonify
 
-import Give_Images  # replace with your python file name
+import Give_Images  
 from QueryBuilder import QueryBuilder
 import mysql.connector
 from flask import Flask
