@@ -1,9 +1,9 @@
 import mysql.connector
 from QueryBuilder import QueryBuilder
 import SQL_Database as DB
-import Filter
 
 index = [0, 0]
+index_2 = [0, 0]
 
 mydb = mysql.connector.connect(
   host="localhost",
@@ -33,3 +33,23 @@ def Give_Image_Left_BCK():
     index[0] = (index[0] - 1) % len(DB.paths_left)
     path = "Sorted/" + DB.paths_left[index[0]]
     return path
+
+def Give_Date_Right_FWRD():
+    index_2[1] = (index_2[1] + 1) % len(DB.Right_Date_List)
+    date = DB.Right_Date_List[index_2[1]]
+    return date
+
+def Give_Date_Left_FWRD():
+    index_2[0] = (index_2[0] + 1) % len(DB.Left_Date_List)
+    date = DB.Left_Date_List[index_2[0]]
+    return date
+
+def Give_Date_Right_BCK():
+    index_2[1] = (index_2[1] - 1) % len(DB.Right_Date_List)
+    date = DB.Right_Date_List[index_2[1]]
+    return date
+
+def Give_Date_Left_BCK():
+    index_2[0] = (index_2[0] - 1) % len(DB.Left_Date_List)
+    date = DB.Left_Date_List[index_2[0]]
+    return date

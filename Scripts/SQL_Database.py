@@ -4,10 +4,12 @@ import numpy as np
 import os
 from PIL import Image
 import time
-import Filter
 from QueryBuilder import QueryBuilder
 
-filnam = []
+Left_Date_List = []
+Right_Date_List = []
+filnamRight = []
+filnamLeft = []
 paths = []
 paths_left = []
 paths_right = []
@@ -119,18 +121,23 @@ def insert_images_to_DB(folder):
 
 folder = "Scripts/Sorted"
 start = time.time()
-insert_images_to_DB(folder)
+#insert_images_to_DB(folder)
 mydb.commit()
 
 print("SORTED")
 query = builder.build()
-mycursor.execute("Select * from images Order By date DESC")#Variable für Frontend
+mycursor.execute("Select * from images Order By date ASC")#Variable für Frontend
 rows = mycursor.fetchall()
 
 for row in rows:
     
-    if "right" in row[-1]:paths_right.append(row[-1])
-    if "left" in row[-1]:paths_left.append(row[-1])
+    if "right" in row[-1]:
+        paths_right.append(row[-1])
+        Right_Date_List.append(row[-3])
+    if "left" in row[-1]:
+        paths_left.append(row[-1])
+        Left_Date_List.append(row[-3])
+
     
 
 end = time.time()

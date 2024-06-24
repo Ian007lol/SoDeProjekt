@@ -23,7 +23,6 @@
       <li> <input type="checkbox" id="Menu4Checkbox"> Menu 4</li>
       <li> <input type="checkbox" id="Menu5Checkbox"> Menu 5</li>
       <li> <input type="checkbox" id="Menu6Checkbox"> Menu 6</li>
-      <li> <input type="checkbox" id="test"> test</li>     
     </ul>
     <button class="dropbtn">Geography</button>
     <ul class="dropdown-content">
@@ -43,14 +42,13 @@
   <p></p>
   <div class="row">
   <div class="column">
-    <img id="imageLeft" src="http://localhost:5000/imageLeft_BCK?" alt="ImgLeft" class="img2">
+    <img id="imageLeft" src="" alt="ImgLeft" class="img2">
   </div>
   <div class="column">
-    <img id="imageRight" src="http://localhost:5000/imageRight_BCK?" alt="ImgRight" class="img2">
+    <img id="imageRight" src="" alt="ImgRight" class="img2">
   </div>
   </div>
-  <button onClick="window.location.reload();">Refresh Page</button>
-  <button id="buttonLeft" class="btn">
+  <button id="buttonLeft" class="btn"><
     <span class="material-symbols-outlined">
       arrow_back_ios</span></button>
   <button id="buttonRight" class="btn">
@@ -63,7 +61,6 @@
 
 
   <div class="timeline">
-    <p id="currentDate" class="box">Current Date:</p>
     <p id="dateL" class="box">Date L: </p>
     <p id="dateR" class="box">Date R: </p>
 </div>
@@ -72,6 +69,8 @@
 document.getElementById('buttonRight').addEventListener('click', function() {
     var url = 'http://localhost:5000/imageLeft_FWRD?';
     document.getElementById('imageLeft').src = url;
+    serve_dateR_FWRD();
+    serve_dateL_FWRD();
 });
 document.getElementById('buttonRight').addEventListener('click', function() {
 var url = 'http://localhost:5000/imageRight_FWRD?';
@@ -80,15 +79,15 @@ document.getElementById('imageRight').src = url;
 document.getElementById('buttonLeft').addEventListener('click', function() {
 var url = 'http://localhost:5000/imageLeft_BCK?';
 document.getElementById('imageLeft').src = url;
+serve_dateR_BCK();
+serve_dateL_BCK();
 });
 document.getElementById('buttonLeft').addEventListener('click', function() {
 var url = 'http://localhost:5000/imageRight_BCK?' ;
 document.getElementById('imageRight').src = url;
 });
-document.getElementById('dateL').textContent = "Date L: "+ document.getElementById("startDate").value
-Current 
 </script>
-  <script>
+<script>
     function fetchImages() {
       fetch('http://localhost:5000/fetchImages', {
         method: 'GET',
@@ -105,6 +104,9 @@ Current
         // For example, refresh images after fetching new ones
         document.getElementById('imageLeft').src = `http://localhost:5000/imageLeft_BCK?${new Date().getTime()}`;
         document.getElementById('imageRight').src = `http://localhost:5000/imageRight_BCK?${new Date().getTime()}`;
+        serve_dateL_BCK();
+        serve_dateR_BCK();
+
       })
       .catch(error => {
         console.error('Error:', error);
@@ -113,8 +115,8 @@ Current
     }
     document.getElementById('fetchImagesBtn').addEventListener('click', fetchImages);
 
-  </script>
-   <script>
+</script>
+<script>
     function sort_KVV_FALSE() {
       fetch('http://localhost:5000/sort_KVV_FALSE', {
         method: 'GET',
@@ -603,7 +605,85 @@ document.getElementById('applyDate').addEventListener('click', applyDate);
     }
 }
 
+// Function to update Date L
+    function serve_dateL_FWRD() {
+      fetch('http://localhost:5000/dateLeft_FWRD', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+        document.getElementById('dateL').textContent = `Date L: ${data.date}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
+    function serve_dateL_BCK() {
+      fetch('http://localhost:5000/dateLeft_BCK', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Success:', data.message);
+        document.getElementById('dateL').textContent = `Date L: ${data.date}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+    }
 
+    // Function to update Date R
+    function serve_dateR_FWRD() {
+      fetch('http://localhost:5000/dateRight_FWRD', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data.dateR);
+        document.getElementById('dateR').textContent = `Date R: ${data.date}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });}
+
+      // Function to update Date R
+    function serve_dateR_BCK() {
+      fetch('http://localhost:5000/dateRight_BCK', {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data.dateR);
+        document.getElementById('dateR').textContent = `Date R: ${data.date}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });}
 
 // Event listeners for checkboxes to update active filters display
     document.getElementById('fetchImagesBtn').addEventListener('click', updateActiveFiltersDisplay);
@@ -619,13 +699,10 @@ window.onload = function() {
             REMOVE_sort_menu_4();
             REMOVE_sort_menu_5();
             REMOVE_sort_menu_6();
-
-
-
-
+            fetchImages();
         };
 
 
-  </script>
+</script>
 
 </html>

@@ -132,7 +132,7 @@ margin-right: 10px;
 
   #dateL {
     position: absolute; /* Allows positioning using top, bottom, left, right */
-    left: 125px; /* Adjust this value to move the button horizontally */
+    left: 220px; /* Adjust this value to move the button horizontally */
     top: 70%; /* Adjust this value to move the button vertically */
     transform: translateY(-50%); /* Centers the button vertically */
     background-color: #ffffff; /* Optional: Add any additional styling */
@@ -151,7 +151,7 @@ margin-right: 10px;
 
   #dateR {
     position: absolute; /* Allows positioning using top, bottom, left, right */
-    right: 700px; /* Adjust this value to move the button horizontally */
+    right: 775px; /* Adjust this value to move the button horizontally */
     top: 70%; /* Adjust this value to move the button vertically */
     transform: translateY(-50%); /* Centers the button vertically */
     background-color: #ffffff; /* Optional: Add any additional styling */
