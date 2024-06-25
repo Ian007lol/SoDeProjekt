@@ -121,7 +121,11 @@ def insert_images_to_DB(folder):
 
 folder = "Scripts/Sorted"
 start = time.time()
+
+
 #insert_images_to_DB(folder)
+
+
 mydb.commit()
 
 print("SORTED")
