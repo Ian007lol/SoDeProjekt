@@ -2,8 +2,8 @@ import mysql.connector
 from QueryBuilder import QueryBuilder
 import SQL_Database as DB
 
-index = [0, 0]
-index_2 = [0, 0]
+index = [1, 1]
+index_2 = [1, 1]
 
 mydb = mysql.connector.connect(
   host="localhost",
