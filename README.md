@@ -23,17 +23,16 @@ in the terminal. <br>
 The same goes for the libraries: pillow, MySQL, Numpy, and OS. <br>
 You also need MySQL Workbench for this to work. <br>
 
-Keep in mind that this was only tested with Microsoft! The HTML was tested on OperaGX and Firefox. <br>
+Keep in mind that this was only tested with Microsoft! <br>
+The HTML was tested on OperaGX and Firefox. <br>
 
 ## How to run the code
-First, The database file is available as a Dump in the project folder, which can be imported. However, before doing so, you need to create the schema with the corresponding name "filteredimages" locally in MySQL. After that, you can import it.<br>
-Keep in mind that the server for the database has to be active, or the code wont work.<br>
-To connect correctly to the database, you must change the password for the connection in both "SQL_Database" (Line 22) and "Flask" (Line 15) for your own password.
+First, the database file is available as a Dump in the project folder, which can be imported. However, before doing so you need to create the schema with the corresponding name "filteredimages" locally in MySQL. After that, you can import it.<br>
+Keep in mind that the server for the database has to be active or the code wont work.<br>
+To connect correctly to the database, you must change the password for the connection in both "SQL_Database" (Line 22) and "Flask" (Line 15) to your own password.
 
-In default, the 'Sorted' folder should already have the filtered images. If that's the case, you can just run the 'Flask_Test' script and open the HTML script via Live Server from the vsc extensions. <br>
+In default, the 'Sorted' folder should already have the filtered images. If that's the case, you can just run the 'Flask' script and open the HTML script via Live Server from the vsc extensions. <br>
 
-If you want to start the basic filter, you have to delete all images inside the 'Sorted' folder. After that you have to run the 'main.py' script. Then you have to run the 'SQL_Database.py'. You need to comment out the line 126: 'insert_images_to_DB(folder)' after you have run it once, or the database will have some problems. Lastly you need to run the 'Flask_Test.py' script and go to the 'Images.html'. Right click into the script and open it via Live Server.<br>
-
-Don't forget to comment out the line 126 'Insert_Images_To_DB(folder)' after you are done loading the images.
+If you want to start the basic filter, you have to delete all images inside the 'Sorted' folder. After that you have to run the 'main.py' script. Then you have to run the 'SQL_Database.py'. You need to comment out the line 126 'insert_images_to_DB(folder)' after you have run it once or the database will have some problems. Lastly you need to run the 'Flask.py' script and go to the 'Images.html'. Right click into the script and open it via Live Server.<br>
 
 Have fun!
