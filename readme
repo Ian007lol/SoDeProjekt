@@ -1,4 +1,4 @@
-# SoftwareDesign - User Interaction Visualizer 
+#SoftwareDesign - User Interaction Visualizer 
 
 ## About the project
 This script is able to take a folder as an input. After uploading it, the folder gets a basic filter, so all broken and unnecessary images are sorted out. After that you are able to filter the images after specific categories.
